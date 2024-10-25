@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>RPG</title>
+    <audio src="audio/mapa.mp3" autoplay loop></audio>
+</head>
+
+<body>
+
+    <header>
+        <ul>
+            <i class="fa-solid fa-house"></i><a href="index.html" class="link">Home</a>
+            <i class="fa-solid fa-earth-americas"></i><a href="mapa.html" class="link">Mapa</a>
+            <i class="fa-solid fa-book"></i><a href="loja.html" class="link">Enciclopédia</a>
+            <i class="fa-solid fa-image-portrait"></i><a href="cartas.html" class="link">Cartas</a>
+            <i class="fa-solid fa-store"></i><a href="loja.html" class="link">Loja</a>
+        </ul>
+    </header>
+
+    <div class="mundos">
+        <div id="mundo1" class="mundo1" onclick="mundo1()">
+            <p>Mundo 1</p>
+            <p>0% Descoberto</p>
+        </div>
+
+        <div id="mundo2" class="mundo2" onclick="mundo2()">
+            <p>Mundo 2</p>
+            <p>0% Descoberto</p>
+        </div>
+
+        <div id="mundo3" class="mundo3" onclick="mundo3()">
+            <p>Mundo 3</p>
+            <p>0% Descoberto</p>
+        </div>
+
+        <div class="locais" id="locais" style="display: none;">
+            <div class="local" onclick="level1()" id="1">
+                <p>Nível 1</p>
+                <p>0% Descoberto</p>
+            </div>
+            <div class="local" id="2">
+                <p>Nível 2</p>
+                <p>0% Descoberto</p>
+            </div>
+            <div class="local" id="3">
+                <p>Nível 3</p>
+                <p>0% Descoberto</p>
+            </div>
+            <div class="local" id="4" style="display: none;">
+                <p>Nível 4</p>
+                <p>0% Descoberto</p>
+            </div>
+            <div class="local" id="5" style="display: none;">
+                <p>Nível 5</p>
+                <p>0% Descoberto</p>
+            </div>
+            <div class="local" id="6" style="display: none;">
+                <p>Nível 6</p>
+                <p>0% Descoberto</p>
+            </div>
+
+            <i class="fa-solid fa-circle-arrow-right" onclick="vai()" id="direita"></i>
+            <i class="fa-solid fa-circle-arrow-left" onclick="vem()" id="esquerda"></i>
+
+            <i class="fa-solid fa-rotate-left" onclick="voltar()" id="voltar"></i>
+        </div>
+
+</body>
+<script src="mapa.js"></script>
+
+</html>

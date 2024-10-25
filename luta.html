@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="luta.css">
+    <title>RPG</title>
+    <audio src="audio/luta.mp3" autoplay loop></audio>
+</head>
+
+<body>
+
+    <img class="bg" src="images/lobby.png">
+    <div id="eu">
+        <p id="vida">HP: 0</p>
+        <img id="euimg">
+    </div>
+
+    <div class="cartase">
+        <div id="slot1" class="slot" onclick="slot1()"></div>
+        <div id="slot2" class="slot"></div>
+        <div id="slot3" class="slot"></div>
+        <div id="slot4" class="slot"></div>
+    </div>
+
+    <div id="inimigo">
+        <p id="vidai">HP: 0</p>
+        <img id="inimigoimg">
+    </div>
+
+    <div class="derrota" id="lose" style="display: none;">
+        <h1>DERROTA</h1>
+        <button onclick="sair()" id="sair">Sair</button>
+    </div>
+
+    <div class="vitoria" id="win" style="display: none;">
+        <h1>VITÓRIA</h1>
+        <button onclick="sair()" id="sair">Sair</button>
+    </div>
+
+    <div class="cartasi">
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+    </div>
+
+    <button onclick="desistir()" class="desistir">Desistir</button>
+</body>
+
+<script src="luta.js"></script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>RPG</title>
+    <audio src="audio/loja.mp3" autoplay loop></audio>
+</head>
+
+<body>
+
+    <header>
+        <ul>
+            <i class="fa-solid fa-house"></i><a href="index.html" class="link">Home</a>
+            <i class="fa-solid fa-earth-americas"></i><a href="mapa.html" class="link">Mapa</a>
+            <i class="fa-solid fa-book"></i><a href="loja.html" class="link">Enciclopédia</a>
+            <i class="fa-solid fa-image-portrait"></i><a href="cartas.html" class="link">Cartas</a>
+            <i class="fa-solid fa-store"></i><a href="loja.html" class="link">Loja</a>
+        </ul>
+    </header>
+
+        <div title="Coins" class="money">
+            <i class="fa-solid fa-coins" id="coins"></i><p id="money">0</p>
+        </div>
+
+    <div class="especial">
+        <div class="principal">
+            <div class="img"><img src="images/espada.png" onclick="comprar(200.00, 'espada')">
+                <img src="images/flecha.png" onclick="comprar(200.00, 'flecha')">
+                <img src="images/chama.png" onclick="comprar(200.00, 'chama')">
+            </div>
+            <div class="produto">
+                <div><i class="fa-solid fa-coins" id="coins" ></i><p>200 Espada</p></div>
+                <div><i class="fa-solid fa-coins" id="coins"></i><p>200 Flecha</p></div>
+                <div><i class="fa-solid fa-coins" id="coins"></i><p>200 Chama</p></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+    <script src="loja.js"></script>
+</html>

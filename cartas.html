@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <audio src="audio/lobby.mp3" autoplay loop></audio>
+    <title>RPG</title>
+</head>
+
+<body>
+
+    <header>
+        <ul>
+            <i class="fa-solid fa-house"></i><a href="index.html" class="link">Home</a>
+            <i class="fa-solid fa-earth-americas"></i><a href="mapa.html" class="link">Mapa</a>
+            <i class="fa-solid fa-book"></i><a href="loja.html" class="link">Enciclopédia</a>
+            <i class="fa-solid fa-image-portrait"></i><a href="cartas.html" class="link">Cartas</a>
+            <i class="fa-solid fa-store"></i><a href="loja.html" class="link">Loja</a>
+        </ul>
+    </header>
+
+    <div class="editar_control">
+        <button class="editar" id="editar" onclick="editar_cursor()">Editar</button>
+        <button class="editar" style="display: none;" id="slots" onclick="editar('slot2')">Slot 2</button>
+        <button class="editar" style="display: none;" id="slots2" onclick="editar('slot3')">Slot 3</button>
+        <button class="editar" style="display: none;" id="slots3" onclick="editar('slot4')">Slot 4</button>
+    </div>
+
+    <div class="deck">
+        <div id="slot1" class="carta"><img id="deck1"></div>
+        <div id="slot2" class="carta"><img id="deck2"></div>
+        <div id="slot3" class="carta"><img id="deck3"></div>
+        <div id="slot4" class="carta"><img id="deck4"></div>
+    </div>
+
+    <div class="acao">
+        <div class="parte">
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img data-hab="Fogo" id="card1">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img data-hab="flechas" id="card2">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img data-hab="magma" id="card3">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card4">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card5">
+            </div>
+        </div>
+
+        <div class="parte">
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card6">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card7">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card8">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card9">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card10">
+            </div>
+        </div>
+
+        <div class="parte">
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card11">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card12">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card13">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card14">
+            </div>
+            <div class="card" onclick="adicionar(this.querySelector('img').src)">
+                <img id="card15">
+            </div>
+        </div>
+    </div>
+
+    <div class="personagens">
+
+    </div>
+
+</body>
+<script src="cartas.js"></script>
+
+</html>

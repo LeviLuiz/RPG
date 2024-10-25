@@ -1,0 +1,354 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    border: inherit;
+}
+
+body {
+    background: gray;
+    text-align: center;
+}
+
+h1 {
+    color: rgb(212, 212, 212);
+    background-color: #565656;
+}
+
+.personagem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    display: flex;
+    justify-content: center;
+}
+
+.lutador {
+    cursor: pointer;
+    margin: 5px;
+    border: 1px solid rgb(153, 153, 153);
+    width: 100px;
+    height: 100px;
+}
+
+.lutador:hover {
+    transition: all 200ms;
+    background: rgb(139, 139, 139);
+}
+
+header {
+    display: flex;
+    padding: 5px 0;
+    background-color: #565656;
+}
+
+ul {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    all: unset;
+    cursor: pointer;
+    margin: 0 6px;
+    color: white;
+}
+
+i {
+    color: white;
+    margin-left: 20px;
+}
+
+.save {
+    margin-right: 15px;
+}
+
+p {
+    color: white;
+}
+
+.level {
+    position: absolute;
+    display: flex;
+    margin: 10px;
+}
+
+.fa-regular {
+    margin: 0 10px;
+}
+
+.level p {
+    font-weight: bold;
+}
+
+.money {
+    position: absolute;
+    display: flex;
+    right: 0;
+    margin: 10px 20px;
+}
+
+#coins {
+    color: rgb(255, 238, 0);
+    margin: 0 10px;
+}
+
+.money p {
+font-weight: bold;
+}
+
+.lobby {
+    margin: calc(50dvh - 25dvh - (50dvh - 25dvh) / 2) auto;
+    width: 100dvh;
+    height: 50dvh;
+}
+
+.lobby img {
+    margin: calc(50dvh - 25dvh - (50dvh - 25dvh) / 2) 0;
+    width: 100dvh;
+    height: 50dvh;
+    border-radius: 20px;
+}
+
+#llutador {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    right: 80dvh;
+    bottom: 17dvh;
+}
+
+.mundos {
+    position: absolute;
+    top: calc(50% - 80px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.mundo1 {
+    border-radius: 20px;
+    background-color: rgb(68, 70, 92);
+    aspect-ratio: 1;
+    margin: 10px 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.mundo1:hover {
+    background-color: rgb(83, 86, 112);
+    transition: all 250ms;
+}
+
+.mundo2 {
+    border-radius: 20px;
+    background-color: rgb(68, 70, 92);
+    aspect-ratio: 1;
+    margin: 10px 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.mundo2:hover {
+    background-color: rgb(83, 86, 112);
+    transition: all 250ms;
+}
+
+.mundo3 {
+    border-radius: 20px;
+    background-color: rgb(68, 70, 92);
+    aspect-ratio: 1;
+    margin: 10px 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.mundo3:hover {
+    background-color: rgb(83, 86, 112);
+    transition: all 250ms;
+}
+
+.locais {
+    display: flex;
+    justify-content: center;
+    /*margin-top: calc(50vh - 150px);*/
+    width: 100%;
+    overflow: hidden;
+}
+
+.local {
+    border-radius: 20px;
+    background-color: rgb(68, 70, 92);
+    aspect-ratio: 1;
+    margin: 10px 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.local:hover {
+    background-color: rgb(83, 86, 112);
+    transition: all 250ms;
+}
+
+.mundos p {
+    margin: 20px 0 50px;
+}
+
+#direita {
+    position: absolute;
+    right: 30px;
+    font-size: 30px;
+    margin: 0;
+    margin-top: calc(75px - 12.5px);
+    cursor: pointer;
+    color: #565656ab;
+    background: #ffffffc2;
+    border-radius: 100%;
+}
+
+#esquerda {
+    position: absolute;
+    left: 10px;
+    font-size: 30px;
+    margin-top: calc(75px - 12.5px);
+    cursor: pointer;
+    color: #565656ab;
+    background: #ffffffc2;
+    border-radius: 100%;
+}
+
+#voltar {
+    position: absolute;
+    font-size: 30px;
+    top: calc(50% + 75px + 30px);
+    left: calc(50% - 30px);
+    cursor: pointer;
+    color: #ffffffc2;
+}
+
+.editar_control {
+    right: 10px;
+    top: 40px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editar {
+    margin: 5px;
+    all: unset;
+    background-color: rgb(36, 124, 255);
+    color: white;
+    border-radius: 10px;
+    letter-spacing: 0.8px;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: all 250ms;
+}
+
+.editar:hover {
+    background-color: rgb(36, 116, 236);
+}
+
+.editar:active {
+    background-color: rgb(30, 99, 202);
+}
+
+#carta_editar {
+    border-radius: 20px;
+    /*margin: 5px auto;*/
+    padding: 0;
+    cursor: pointer;
+    width: 150px;
+}
+
+.deck {
+    height: 200px;
+    width: 80%;
+    border-radius: 20px;
+    background-color: rgb(168, 168, 168);
+    margin: 20px auto;
+    display: flex;
+}
+
+.carta {
+    border-radius: 20px;
+    margin: 5px auto;
+    width: 150px;
+    overflow: hidden;
+}
+
+.carta img {
+    width: 150px;
+    height: 190px;
+}
+
+.acao {
+    width: 90%;
+    margin: 10px auto;
+    flex-direction: row;
+    background-color: rgb(168, 168, 168);
+    border-radius: 20px;
+}
+
+.parte {
+    display: flex;
+}
+
+.card {
+    border-radius: 20px;
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.acao img {
+    width: 150px;
+    height: 200px;
+}
+
+.image {
+    position: absolute;
+    width: 100px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.principal {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.principal img {
+    border-radius: 20px;
+    margin: 0 20px;
+    width: 150px;
+    height: 200px;
+    cursor: pointer;
+    transition: all 100ms;
+}
+
+.principal img:hover {
+    filter: brightness(96%);
+}
+
+.produto {
+    margin: auto;
+    width: auto;
+    gap: 0 85px;
+    justify-content: center;
+    display: flex;
+}
+
+.produto div {
+    max-height: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
