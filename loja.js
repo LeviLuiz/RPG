@@ -17,6 +17,7 @@ function comprar(preço, nome) {
     } else {
         money -= preço;
         localStorage.setItem("money", money);
+        localStorage.setItem('especial', nome)
     }
 
     document.getElementById('money').innerHTML = localStorage.getItem('money')
