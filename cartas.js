@@ -1,8 +1,3 @@
-/*slot1 = document.getElementById('slot1')
-slot2 = document.getElementById('slot2')
-slot3 = document.getElementById('slot3')
-slot4 = document.getElementById('slot4')*/
-
 slot1 = document.getElementById('deck1')
 slot2 = document.getElementById('deck2')
 slot3 = document.getElementById('deck3')
@@ -10,9 +5,6 @@ slot4 = document.getElementById('deck4')
 
 carta = document.querySelectorAll('div.card')
 button = document.getElementById('editar')
-/*slots = document.getElementById('slots')
-slots2 = document.getElementById('slots2')
-slots3 = document.getElementById('slots3')*/
 
 if (localStorage.getItem('personagem') == 'Mago') {
     carta1 = 'chama'
@@ -95,15 +87,6 @@ for (i = 1; i <= 15 ; i++) {
     }
 }
 
-//console.log(localStorage.getItem('cartas'))
-//console.log('images/' + dataset + '.png')
-
-/*function adicionar() {
-    localStorage.setItem('slot2', this)
-    img = document.querySelector(this + 'img')
-    slot2.src = img
-}*/
-
 function adicionar(img) {
     if (card.style.cursor == 'pointer') {
         nimg = document.createElement('img')
@@ -112,34 +95,3 @@ function adicionar(img) {
         slot.src = nimg.src
     }
 }
-
-/*function adicionar(img) {
-    if (card.style.cursor == 'pointer') {
-        nimg = document.createElement('img')
-        nimg.src = img
-        nimg.classList.add('image')
-        slot2.src = nimg.src
-        console.log(slot2.src)
-        console.log(img)
-    }
-}*/
-
-/*const buttons = document.querySelectorAll('.btn');
-        
-        buttons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Move apenas o botão que foi clicado
-                this.style.transform = 'translateX(100px)'; // Exemplo de movimento para a direita
-            });
-        });*/
-
-        /*const buttons = document.querySelectorAll('.btn');
-
-        buttons.forEach(button => {
-            let positionX = 0; // Armazena a posição atual do botão
-            
-            button.addEventListener('click', function() {
-                positionX += 20; // Incrementa a posição em 20px a cada clique
-                this.style.transform = `translateX(${positionX}px)`;
-            });
-        });*/
