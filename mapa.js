@@ -148,7 +148,7 @@ function level1() {
     window.location.href = 'luta.html'
 }
 
-function mundo1() {
+function mundo(nivel) {
     local = document.getElementById('locais')
     mundo1 = document.getElementById('mundo1')
     mundo2 = document.getElementById('mundo2')
@@ -159,6 +159,11 @@ function mundo1() {
     mundo3.style.display = 'none'
 
     local.style.display = 'flex'
+
+    for (i = 1;i <= 6; i++) {
+        level = document.getElementById(i)
+    }
+
 }
 
 function voltar() {
