@@ -55,6 +55,9 @@ body {
     width: 25%;
     cursor: pointer;
     border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #inimigo {
@@ -71,7 +74,12 @@ p {
     cursor: default;
 }
 
-img {
+#eu img {
+    width: 100px;
+    height: 100px;
+}
+
+#inimigo img {
     width: 100px;
     height: 100px;
 }
@@ -86,6 +94,15 @@ img {
     display: flex;
     border-radius: 25px;
     background-color: rgb(68, 68, 68);
+}
+
+.slot img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.cartasi .slot {
+    cursor: default;
 }
 
 .vitoria {
