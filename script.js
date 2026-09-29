@@ -6,21 +6,6 @@ if (localStorage.getItem("personagem") == null) {
     document.querySelector("div").style.display = "static";
 }
 
-function p1() {
-    localStorage.setItem("personagem", "Mago");
-    window.location.href = "index.html";
-}
-
-function p2() {
-    localStorage.setItem("personagem", "Guerreiro");
-    window.location.href = "index.html";
-}
-
-function p3() {
-    localStorage.setItem("personagem", "Arqueiro");
-    window.location.href = "index.html";
-}
-
 function p(tipo) {
     if (tipo == "mago") {
         localStorage.setItem("personagem", "Mago");
