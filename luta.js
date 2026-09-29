@@ -1,6 +1,12 @@
 let tfogo = 2;
 let tmagma = 3;
 let tflechas = 1;
+let tespecial = 2
+
+let recargaFogo = 2;
+let recargaMagma = 3;
+let recargaFlechas = 1;
+let recargaEspecial = 1;
 
 let abelha_hp = 20;
 let abelha_atk = 2;
@@ -81,7 +87,39 @@ if (carta4 != null) deck4.src = carta4;
 
 let hp = document.getElementById("vida");
 let hpi = document.getElementById("vidai");
+
 let money = Number(localStorage.getItem("money"));
+
+let turno = 1;
+let aguardandoInimigo = false;
+let encerrada = false;
+
+let cooldown = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+};
+
+let cooldownTexto = {
+    1: document.createElement("span"),
+    2: document.createElement("span"),
+    3: document.createElement("span"),
+    4: document.createElement("span"),
+};
+
+for (let i = 1; i <= 4; i++) {
+  cooldownTexto[i].style.position = "absolute";
+  //cooldownTexto[i].style.top = "5px";
+  //cooldownTexto[i].style.left = "5px";
+  cooldownTexto[i].style.fontSize = "20px";
+  cooldownTexto[i].style.fontWeight = "bold";
+  cooldownTexto[i].style.color = "white";
+  cooldownTexto[i].style.textShadow = "1px 1px 3px black";
+
+  document.getElementById("slot" + i).style.position = "relative";
+  document.getElementById("slot" + i).appendChild(cooldownTexto[i]);
+}
 
 function nomeCarta(src) {
     if (!src) return "";
@@ -106,10 +144,49 @@ function danoCarta(src) {
         return tflechas;
     }
 
+    if (carta == "tespecial") {
+        return tespecial;
+    }
+
+    return 0;
+}
+
+function recargaCarta(src) {
+    let carta = nomeCarta(src);
+
+    if (carta == "fogo" || carta == "chama") {
+        return recargaFogo;
+    }
+
+    if (carta == "magma") {
+        return recargaMagma;
+    }
+
+    if (carta == "flechas" || carta == "flecha") {
+        return recargaFlechas;
+    }
+
+    if (carta == "tespecial") {
+        return recargaEspecial;
+    }
+
     return 0;
 }
 
 function atacar(slotNumber) {
+    if (encerrada) return;
+
+    if (aguardandoInimigo) return;
+
+    if (cooldown[slotNumber] > 0) {
+        console.log(
+            "Essa carta ainda está em recarga por " +
+                cooldown[slotNumber] +
+                " turno(s).",
+        );
+        return;
+    }
+
     let imagem;
 
     if (slotNumber == 1) {
@@ -125,11 +202,14 @@ function atacar(slotNumber) {
     if (!imagem) return;
 
     let dano = danoCarta(imagem);
+    let recarga = recargaCarta(imagem);
 
     if (dano <= 0) {
         console.log("Essa carta ainda não possui dano definido.");
         return;
     }
+
+    abaterCooldowns();
 
     if (inimigo == "abelha") {
         abelha_hp -= dano;
@@ -137,7 +217,72 @@ function atacar(slotNumber) {
         vespa_hp -= dano;
     }
 
+    cooldown[slotNumber] = recarga;
+
+    document.getElementById("deck" + slotNumber).style.filter = "grayscale(80%)";
+
+    mostrarCooldown();
+
     luta();
+
+    if (encerrada) return;
+
+    aguardandoInimigo = true;
+
+    setTimeout(() => {
+        turnoInimigo();
+    }, 500);
+}
+
+function abaterCooldowns() {
+    for (let i = 1; i <= 4; i++) {
+        if (cooldown[i] > 0) {
+            cooldown[i]--;
+        }
+    }
+
+    mostrarCooldown();
+}
+
+function mostrarCooldown() {
+  for (let i = 1; i <= 4; i++) {
+      if (cooldown[i] > 0) {
+          cooldownTexto[i].innerHTML = cooldown[i];
+          document.getElementById("deck" + i).style.filter = "grayscale(80%)";
+      } else {
+          cooldownTexto[i].innerHTML = "";
+          document.getElementById("deck" + i).style.filter = "";
+      }
+  }
+}
+
+function turnoInimigo() {
+    if (encerrada) return;
+
+    let danoInimigo;
+
+    if (inimigo == "abelha") {
+        danoInimigo = abelha_atk - player_def;
+    } else if (inimigo == "vespa") {
+        danoInimigo = vespa_atk - player_def;
+    } else {
+        return;
+    }
+
+    if (danoInimigo < 1) {
+        danoInimigo = 1;
+    }
+
+    player_hp -= danoInimigo;
+
+    localStorage.setItem("hp", player_hp);
+
+    luta();
+
+    if (!encerrada) {
+        aguardandoInimigo = false;
+        turno++;
+    }
 }
 
 slotg1.onclick = () => atacar(1);
@@ -146,35 +291,33 @@ slotg3.onclick = () => atacar(3);
 slotg4.onclick = () => atacar(4);
 
 function luta() {
-    hp.innerHTML = "HP: " + player_hp;
+    hp.innerHTML = "HP: " + Math.max(0, player_hp);
 
     if (inimigo == "abelha") {
-        hpi.innerHTML = "HP: " + abelha_hp;
+        hpi.innerHTML = "HP: " + Math.max(0, abelha_hp);
     } else if (inimigo == "vespa") {
-        hpi.innerHTML = "HP: " + vespa_hp;
+        hpi.innerHTML = "HP: " + Math.max(0, vespa_hp);
     }
 
-    let inimigo_morto = false;
-
-    if (inimigo == "abelha" && abelha_hp <= 0) {
-        inimigo_morto = true;
-    }
-
-    if (inimigo == "vespa" && vespa_hp <= 0) {
-        inimigo_morto = true;
-    }
+    let inimigo_morto =
+        (inimigo == "abelha" && abelha_hp <= 0) ||
+        (inimigo == "vespa" && vespa_hp <= 0);
 
     if (inimigo_morto) {
-        if (document.getElementById("win").style.display != "block") {
-            document.getElementById("win").style.display = "block";
+        encerrada = true;
 
-            money += 10;
+        document.getElementById("win").style.display = "block";
 
-            localStorage.setItem("money", money);
-        }
+        money += 10;
+
+        localStorage.setItem("money", money);
+
+        return;
     }
 
     if (player_hp <= 0) {
+        encerrada = true;
+
         document.getElementById("lose").style.display = "block";
 
         money -= 10;
