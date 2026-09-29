@@ -144,7 +144,7 @@ function danoCarta(src) {
         return tflechas;
     }
 
-    if (carta == "tespecial") {
+    if (carta == "tespecial" || carta == "espada") {
         return tespecial;
     }
 
@@ -166,7 +166,7 @@ function recargaCarta(src) {
         return recargaFlechas;
     }
 
-    if (carta == "tespecial") {
+    if (carta == "tespecial" || carta == "espada") {
         return recargaEspecial;
     }
 
