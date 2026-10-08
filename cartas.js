@@ -86,7 +86,7 @@ for (i = 1; i <= 15; i++) {
     dataset = card.dataset.hab;
 
     if (dataset == undefined) {
-        card.src = "images/abelha.jpg";
+        card.src = "images/desconhecido.jpg";
     } else {
         card.src = "images/" + dataset + ".png";
     }
