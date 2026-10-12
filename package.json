@@ -1,0 +1,24 @@
+{
+  "name": "rpg",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cartas.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeviLuiz/RPG.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/LeviLuiz/RPG/issues"
+  },
+  "homepage": "https://github.com/LeviLuiz/RPG#readme",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3"
+  }
+}

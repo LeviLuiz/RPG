@@ -176,7 +176,7 @@ font-weight: bold;
 .locais {
     display: flex;
     justify-content: center;
-    /*margin-top: calc(50vh - 150px);*/
+    margin-top: calc(50vh - 150px);
     width: 100%;
     overflow: hidden;
 }
@@ -185,9 +185,12 @@ font-weight: bold;
     border-radius: 20px;
     background-color: rgb(68, 70, 92);
     aspect-ratio: 1;
-    margin: 10px 150px;
+    margin: 10px 100px;
     height: 150px;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .local:hover {
